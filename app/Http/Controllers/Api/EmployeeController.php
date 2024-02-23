@@ -28,20 +28,43 @@ class EmployeeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    /**
-     * @OA\ Post(
+     * Create Todo
+     * @OA\Post (
      *     path="employe",
-     *      @OA\RequestBody(
-     *           required=true,
-     *           @OA\property (name="text",type="string")
+     *     tags={"Employe"},
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                      type="object",
+     *                      @OA\Property(
+     *                          property="name",
+     *                          type="string"
+     *                      ),
+     *                      @OA\Property(
+     *                          property="employeeIdentifier",
+     *                          type="string"
+     *                      ),
+     *                      @OA\Property(
+     *                          property="email",
+     *                          type="string"
+     *                      )
+     *                      @OA\Property(
+     *                          property="phoneNumber",
+     *                          type="string"
+     *                      )
+     *                 ),
+     *                 example={
+     *                     "name":"Jean Jack",
+     *                      "employeeIdentifier":"kokooo",
+     *                     "email":"jean@example.com",
+     *                      "phoneNumber":"+25771323457
      *
-     *      ),
-     *        @OA\Response(
-     *          response=400,
-     *          description="Bad Request"
-     *      ),
+     *                }
+     *             )
+     *         )
+     *      )
      * )
      */
     public function store(EmployeeRequest $request)
